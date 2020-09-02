@@ -34,7 +34,7 @@ class ImageListViewModel(private val savedStateHandle: SavedStateHandle, private
             }
     ).flattenMerge(2)
 
-    fun showSubreddit() {
+    fun showPost() {
         clearListCh.offer(Unit)
 
         savedStateHandle.set(KEY_SEARCH, searchWord.get().toString())

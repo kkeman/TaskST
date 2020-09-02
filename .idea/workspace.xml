@@ -7,9 +7,37 @@
   </component>
   <component name="AndroidLogFilters">
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19f68a53-676c-40f5-9615-d745721afb67" name="Default Changelist" comment="" />
+    <list default="true" id="19f68a53-676c-40f5-9615-d745721afb67" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_reactivex_rxjava3_rxandroid_3_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_reactivex_rxjava3_rxjava_3_0_3_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_reactivestreams_reactive_streams_1_0_3_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_reactivestreams_reactive_streams_1_0_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/codingtest/view/adapters/ImageAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/codingtest/view/adapters/ImageAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/codingtest/view/fragments/ImageFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/codingtest/view/fragments/ImageFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/service/codingtest/viewmodel/ImageListViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/service/codingtest/viewmodel/ImageListViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/frag_favorite.xml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -167,10 +195,10 @@
       <screen x="1982" y="0" width="1858" height="1080" />
     </state>
     <state x="2441" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1598343052135" />
-    <state x="2641" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599034910538">
+    <state x="2641" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599037525371">
       <screen x="1982" y="0" width="1858" height="1080" />
     </state>
-    <state x="2641" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1599034910538" />
+    <state x="2641" y="286" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1599037525371" />
     <state x="2690" y="197" key="#org.jetbrains.kotlin.idea.refactoring.move.moveDeclarations.ui.MoveKotlinTopLevelDeclarationsDialog" timestamp="1598855790797">
       <screen x="1982" y="0" width="1858" height="1080" />
     </state>
@@ -191,22 +219,22 @@
       <screen x="1982" y="0" width="1858" height="1080" />
     </state>
     <state x="2691" y="295" key="FileChooserDialogImpl/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1598849748395" />
-    <state width="1815" height="264" key="GridCell.Tab.0.bottom" timestamp="1599035946902">
+    <state width="1815" height="264" key="GridCell.Tab.0.bottom" timestamp="1599038658123">
       <screen x="1982" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="264" key="GridCell.Tab.0.bottom/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1599035946902" />
-    <state width="1815" height="264" key="GridCell.Tab.0.center" timestamp="1599035946902">
+    <state width="1815" height="264" key="GridCell.Tab.0.bottom/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1599038658123" />
+    <state width="1815" height="264" key="GridCell.Tab.0.center" timestamp="1599038658123">
       <screen x="1982" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="264" key="GridCell.Tab.0.center/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1599035946902" />
-    <state width="1815" height="264" key="GridCell.Tab.0.left" timestamp="1599035946902">
+    <state width="1815" height="264" key="GridCell.Tab.0.center/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1599038658123" />
+    <state width="1815" height="264" key="GridCell.Tab.0.left" timestamp="1599038658123">
       <screen x="1982" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="264" key="GridCell.Tab.0.left/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1599035946902" />
-    <state width="1815" height="264" key="GridCell.Tab.0.right" timestamp="1599035946902">
+    <state width="1815" height="264" key="GridCell.Tab.0.left/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1599038658123" />
+    <state width="1815" height="264" key="GridCell.Tab.0.right" timestamp="1599038658123">
       <screen x="1982" y="0" width="1858" height="1080" />
     </state>
-    <state width="1815" height="264" key="GridCell.Tab.0.right/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1599035946902" />
+    <state width="1815" height="264" key="GridCell.Tab.0.right/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1599038658123" />
     <state width="1815" height="363" key="GridCell.Tab.1.bottom" timestamp="1598606525423">
       <screen x="1982" y="0" width="1858" height="1080" />
     </state>
@@ -231,10 +259,10 @@
       <screen x="1982" y="0" width="1858" height="1080" />
     </state>
     <state x="2074" y="92" width="1674" height="896" key="com.intellij.history.integration.ui.views.FileHistoryDialog/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1597300280093" />
-    <state x="2604" y="271" width="745" height="608" key="find.popup" timestamp="1599034296026">
+    <state x="2604" y="271" width="745" height="608" key="find.popup" timestamp="1599037544739">
       <screen x="1982" y="0" width="1858" height="1080" />
     </state>
-    <state x="2604" y="271" width="745" height="608" key="find.popup/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1599034296026" />
+    <state x="2604" y="271" width="745" height="608" key="find.popup/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1599037544739" />
     <state x="2652" y="181" key="refactoring.ChangeSignatureDialog" timestamp="1597220962966">
       <screen x="1982" y="0" width="1858" height="1080" />
     </state>
@@ -243,10 +271,10 @@
       <screen x="1982" y="0" width="1858" height="1080" />
     </state>
     <state x="2567" y="250" key="run.anything.popup/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1597280715837" />
-    <state x="2574" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1599036838113">
+    <state x="2574" y="235" width="672" height="678" key="search.everywhere.popup" timestamp="1599037665020">
       <screen x="1982" y="0" width="1858" height="1080" />
     </state>
-    <state x="2574" y="235" width="672" height="678" key="search.everywhere.popup/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1599036838113" />
+    <state x="2574" y="235" width="672" height="678" key="search.everywhere.popup/62.0.1858.1080/1982.0.1858.1080@1982.0.1858.1080" timestamp="1599037665020" />
     <state x="654" y="235" width="672" height="678" key="search.everywhere.popup/62.0.1858.1080/1982.0.1858.1080@62.0.1858.1080" timestamp="1598861951023" />
   </component>
   <component name="XDebuggerManager">
