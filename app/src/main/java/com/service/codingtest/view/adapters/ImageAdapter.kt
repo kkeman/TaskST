@@ -27,6 +27,8 @@ class ImageAdapter: PagingDataAdapter<DocumentData, ImageAdapter.ViewHolder>(Cha
         val data = getItem(position)!!
 
         Glide.with(holder.itemView.context).load(data.image_url)
+            .placeholder(R.drawable.placeholder)
+            .thumbnail(0.1f)
             .into(holder.iv_thumb)
 
         MLog.d(TAG, data.image_url)
