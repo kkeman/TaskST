@@ -4,9 +4,7 @@ import android.app.Application
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.*
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.*
@@ -20,7 +18,6 @@ import com.service.codingtest.repository.DbImagePostRepository
 import com.service.codingtest.view.adapters.ImageAdapter
 import com.service.codingtest.view.adapters.ImageLoadStateAdapter
 import com.service.codingtest.viewmodel.ImageListViewModel
-import com.service.codingtest.viewmodel.SharedViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.ObservableEmitter
@@ -35,6 +32,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.filter
+import org.koin.android.ext.android.inject
 import java.util.concurrent.TimeUnit
 
 
@@ -42,9 +40,7 @@ class ImageFragment : Fragment() {
 
     private lateinit var binding: FragImageBinding
 
-    private lateinit var adapter: ImageAdapter
-
-    private val model: SharedViewModel by activityViewModels()
+    private val imageAdapter: ImageAdapter by inject()
 
     class MainViewModelFactory(
         owner: SavedStateRegistryOwner,
@@ -89,15 +85,18 @@ class ImageFragment : Fragment() {
     }
 
     private fun initImageListView() {
-        adapter = ImageAdapter()
-        rv_image.adapter = adapter.withLoadStateHeaderAndFooter(
-            header = ImageLoadStateAdapter(adapter),
-            footer = ImageLoadStateAdapter(adapter)
+
+        val headerAdapter: ImageLoadStateAdapter by inject()
+        val footerAdapter: ImageLoadStateAdapter by inject()
+
+        rv_image.adapter = imageAdapter.withLoadStateHeaderAndFooter(
+            header = headerAdapter,
+            footer = footerAdapter
         )
 
         lifecycleScope.launchWhenCreated {
             @OptIn(ExperimentalCoroutinesApi::class)
-            adapter.loadStateFlow.collectLatest { loadStates ->
+            imageAdapter.loadStateFlow.collectLatest { loadStates ->
                 layout_swipe_refresh.isRefreshing = loadStates.refresh is LoadState.Loading
             }
         }
@@ -105,13 +104,13 @@ class ImageFragment : Fragment() {
         lifecycleScope.launchWhenCreated {
             @OptIn(ExperimentalCoroutinesApi::class)
             binding.vm!!.posts.collectLatest {
-                adapter.submitData(it)
+                imageAdapter.submitData(it)
             }
         }
 
         lifecycleScope.launchWhenCreated {
             @OptIn(FlowPreview::class)
-            adapter.loadStateFlow
+            imageAdapter.loadStateFlow
                 .distinctUntilChangedBy { it.refresh }
                 .filter { it.refresh is LoadState.NotLoading }
                 .collect { rv_image.scrollToPosition(0) }
@@ -119,7 +118,7 @@ class ImageFragment : Fragment() {
     }
 
     private fun initSwipeToRefresh() {
-        layout_swipe_refresh.setOnRefreshListener { adapter.refresh() }
+        layout_swipe_refresh.setOnRefreshListener { imageAdapter.refresh() }
     }
 
     private fun initSearchEditText() {

@@ -1,9 +1,7 @@
 package com.service.codingtest.view.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
@@ -33,8 +31,8 @@ class NetworkStateItemViewHolder(parent: ViewGroup, private val retryCallback: (
     private val binding = NetworkStateItemBinding.bind(itemView)
     private val progressBar = binding.progressBar
     private val errorMsg = binding.errorMsg
-    private val retry = binding.retryButton
     private val emptyMsg = binding.emptyMsg
+    private val retry = binding.retryButton
         .also {
             it.setOnClickListener { retryCallback() }
         }

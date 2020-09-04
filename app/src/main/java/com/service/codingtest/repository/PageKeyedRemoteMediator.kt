@@ -71,10 +71,13 @@ class PageKeyedRemoteMediator(
                 imageDao.insertAll(items)
             }
 
+            MLog.d(TAG, "items.isEmpty():"+items.isEmpty())
             return MediatorResult.Success(endOfPaginationReached = items.isEmpty())
         } catch (e: IOException) {
+            MLog.w(TAG, e.message)
             return MediatorResult.Error(e)
         } catch (e: HttpException) {
+            MLog.w(TAG, e.message)
             return MediatorResult.Error(e)
         }
     }
