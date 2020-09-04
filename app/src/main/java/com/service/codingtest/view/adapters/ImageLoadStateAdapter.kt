@@ -1,7 +1,9 @@
 package com.service.codingtest.view.adapters
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.paging.LoadStateAdapter
@@ -12,7 +14,7 @@ import com.service.codingtest.databinding.NetworkStateItemBinding
 class ImageLoadStateAdapter(private val adapter: ImageAdapter) :
     LoadStateAdapter<NetworkStateItemViewHolder>() {
     override fun onBindViewHolder(holder: NetworkStateItemViewHolder, loadState: LoadState) {
-        holder.bindTo(loadState)
+        holder.bindTo(loadState, adapter)
     }
 
     override fun onCreateViewHolder(
@@ -32,14 +34,16 @@ class NetworkStateItemViewHolder(parent: ViewGroup, private val retryCallback: (
     private val progressBar = binding.progressBar
     private val errorMsg = binding.errorMsg
     private val retry = binding.retryButton
+    private val emptyMsg = binding.emptyMsg
         .also {
             it.setOnClickListener { retryCallback() }
         }
 
-    fun bindTo(loadState: LoadState) {
+    fun bindTo(loadState: LoadState, adapter: ImageAdapter) {
         progressBar.isVisible = loadState is LoadState.Loading
         retry.isVisible = loadState is LoadState.Error
         errorMsg.isVisible = !(loadState as? LoadState.Error)?.error?.message.isNullOrBlank()
         errorMsg.text = (loadState as? LoadState.Error)?.error?.message
+        emptyMsg.isVisible = loadState is LoadState.Loading && adapter.itemCount == 0
     }
 }

@@ -4,7 +4,9 @@ import android.app.Application
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.*
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.*
@@ -44,8 +46,15 @@ class ImageFragment : Fragment() {
 
     private val model: SharedViewModel by activityViewModels()
 
-    class MainViewModelFactory(owner: SavedStateRegistryOwner, private val documentRepository :DbImagePostRepository) : AbstractSavedStateViewModelFactory(owner, null) {
-        override fun <T : ViewModel?> create(key: String, modelClass: Class<T>, handle: SavedStateHandle): T {
+    class MainViewModelFactory(
+        owner: SavedStateRegistryOwner,
+        private val documentRepository: DbImagePostRepository
+    ) : AbstractSavedStateViewModelFactory(owner, null) {
+        override fun <T : ViewModel?> create(
+            key: String,
+            modelClass: Class<T>,
+            handle: SavedStateHandle
+        ): T {
             @Suppress("UNCHECKED_CAST")
             return ImageListViewModel(handle, documentRepository) as T
         }
@@ -58,8 +67,14 @@ class ImageFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.frag_image, container, false)
         binding = FragImageBinding.bind(view)
-        binding.vm = ViewModelProvider(requireActivity(), MainViewModelFactory(this, DbImagePostRepository(
-            AppDB.getInstance(requireContext().applicationContext as Application), ImageAPI.create())))
+        binding.vm = ViewModelProvider(
+            requireActivity(), MainViewModelFactory(
+                this, DbImagePostRepository(
+                    AppDB.getInstance(requireContext().applicationContext as Application),
+                    ImageAPI.create()
+                )
+            )
+        )
             .get(ImageListViewModel::class.java)
 
         return binding.root
@@ -70,43 +85,7 @@ class ImageFragment : Fragment() {
 
         initImageListView()
         initSwipeToRefresh()
-
-
-//        initSearchEditText()
-
-        val observableTextQuery = Observable.create(ObservableOnSubscribe {
-                emitter: ObservableEmitter<String>? ->
-                et_search.addTextChangedListener(object : TextWatcher {
-                    override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-                    override fun afterTextChanged(s: Editable?) {}
-                    override fun beforeTextChanged(s: CharSequence?, start: Int,
-                        count: Int, after: Int) {
-                        emitter?.onNext(s.toString())
-                    }
-                })
-            })
-            .debounce(500, TimeUnit.MILLISECONDS)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribeOn(AndroidSchedulers.mainThread())
-
-        observableTextQuery.subscribe(object : Observer<String> {
-            override fun onComplete() {
-            }
-
-            override fun onSubscribe(d: Disposable?) {
-            }
-
-            override fun onNext(t: String) {
-                binding.vm!!.showPost()
-            }
-
-            override fun onError(e: Throwable?) {
-            }
-
-        })
-
-
+        initSearchEditText()
     }
 
     private fun initImageListView() {
@@ -116,21 +95,17 @@ class ImageFragment : Fragment() {
             footer = ImageLoadStateAdapter(adapter)
         )
 
-        model.text.observe(viewLifecycleOwner, {
-            adapter.notifyDataSetChanged()
-        })
-
         lifecycleScope.launchWhenCreated {
             @OptIn(ExperimentalCoroutinesApi::class)
-            binding.vm!!.posts.collectLatest {
-                adapter.submitData(it)
+            adapter.loadStateFlow.collectLatest { loadStates ->
+                layout_swipe_refresh.isRefreshing = loadStates.refresh is LoadState.Loading
             }
         }
 
         lifecycleScope.launchWhenCreated {
             @OptIn(ExperimentalCoroutinesApi::class)
-            adapter.loadStateFlow.collectLatest { loadStates ->
-                layout_swipe_refresh.isRefreshing = loadStates.refresh is LoadState.Loading
+            binding.vm!!.posts.collectLatest {
+                adapter.submitData(it)
             }
         }
 
@@ -147,13 +122,40 @@ class ImageFragment : Fragment() {
         layout_swipe_refresh.setOnRefreshListener { adapter.refresh() }
     }
 
-    private fun initSearchEditText() =
-        et_search.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
-            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+    private fun initSearchEditText() {
+        val observableTextQuery =
+            Observable.create(ObservableOnSubscribe { emitter: ObservableEmitter<String>? ->
+                et_search.addTextChangedListener(object : TextWatcher {
+                    override fun onTextChanged(
+                        s: CharSequence?,
+                        start: Int,
+                        before: Int,
+                        count: Int
+                    ) {
+                    }
+
+                    override fun afterTextChanged(s: Editable?) {}
+                    override fun beforeTextChanged(
+                        s: CharSequence?, start: Int,
+                        count: Int, after: Int
+                    ) {
+                        emitter?.onNext(s.toString())
+                    }
+                })
+            })
+                .debounce(1, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+
+        observableTextQuery.subscribe(object : Observer<String> {
+            override fun onComplete() {}
+            override fun onSubscribe(d: Disposable?) {}
+            override fun onNext(t: String) {
                 binding.vm!!.showPost()
-                return@OnKeyListener true
             }
-            false
+
+            override fun onError(e: Throwable?) {}
         })
+    }
 
 }

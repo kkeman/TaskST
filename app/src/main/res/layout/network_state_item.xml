@@ -22,4 +22,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/retry"/>
+
+    <TextView
+        android:id="@+id/empty_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/empty_search"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
