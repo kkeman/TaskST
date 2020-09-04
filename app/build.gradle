@@ -51,7 +51,7 @@ dependencies {
 
     // kotlin
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    // aac
+    // paging
     implementation 'androidx.paging:paging-runtime:3.0.0-alpha06'
     // retrofit, okhttp log
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -80,6 +80,7 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxjava:3.0.3'
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
 
+    // koin
     implementation "org.koin:koin-androidx-scope:$koin_version"
     implementation "org.koin:koin-androidx-viewmodel:$koin_version"
     implementation "org.koin:koin-androidx-fragment:$koin_version"
