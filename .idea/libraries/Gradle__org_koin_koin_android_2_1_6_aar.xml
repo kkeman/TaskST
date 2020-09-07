@@ -1,6 +1,7 @@
 <component name="libraryTable">
   <library name="Gradle: org.koin:koin-android:2.1.6@aar">
     <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/34787f7cce32aa59be54b9f869e6d7dc/jetified-koin-android-2.1.6/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/34787f7cce32aa59be54b9f869e6d7dc/jetified-koin-android-2.1.6/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/34787f7cce32aa59be54b9f869e6d7dc/jetified-koin-android-2.1.6/res" />
     </CLASSES>
