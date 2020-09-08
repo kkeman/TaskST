@@ -23,4 +23,7 @@ interface ItemsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(posts: List<DocumentData>)
+
+    @Query("SELECT EXISTS(SELECT * FROM Items WHERE searchWord=:searchWord)")
+    fun exist(searchWord: String) : Boolean
 }
