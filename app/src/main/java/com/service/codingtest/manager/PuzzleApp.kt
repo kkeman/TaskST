@@ -8,12 +8,7 @@ import org.koin.core.context.startKoin
 
 class PuzzleApp : Application() {
 
-    lateinit var context: Context
-
-    init{
-        instance = this
-    }
-
+    init { instance = this }
     companion object {
         private var instance: PuzzleApp? = null
         fun applicationContext() : Context {

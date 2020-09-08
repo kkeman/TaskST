@@ -10,7 +10,7 @@ class DbImagePostRepository(val db: AppDB, private val imageAPI: ImageAPI) : Ima
         query: String,
         pageSize: Int
     ) = Pager(
-        config = PagingConfig(pageSize = 10, initialLoadSize = 20),
+        config = PagingConfig(pageSize = 10, initialLoadSize = 20, enablePlaceholders = false),
         remoteMediator = PageKeyedRemoteMediator(db, imageAPI, query)) {
 
         db.imageDao().loadAll(query)
