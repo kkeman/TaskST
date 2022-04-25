@@ -5,11 +5,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'koin'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     defaultConfig {
         applicationId "com.service.codingtest"
         minSdkVersion 16
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -60,7 +60,7 @@ dependencies {
     // kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     // paging
-    implementation 'androidx.paging:paging-runtime:3.0.0-alpha06'
+    implementation 'androidx.paging:paging-runtime:3.1.1'
     // retrofit, okhttp log
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
@@ -77,11 +77,12 @@ dependencies {
 
     implementation "androidx.fragment:fragment-ktx:1.2.5"
 
-    def room_version = "2.3.0-alpha02"
+    def room_version = "2.5.0-alpha01"
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
     implementation "androidx.room:room-rxjava2:$room_version"
+    implementation "androidx.room:room-paging:$room_version"
     testImplementation "androidx.room:room-testing:$room_version"
 
     // rxjava
